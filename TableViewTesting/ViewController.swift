@@ -10,19 +10,41 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var c1: IntervalPickerController<Dictionary<String, String>>!
-    var c2: IntervalPickerController<Dictionary<String, String>>!
+    var c1: IntervalPickerController!
+    var c2: IntervalPickerController!
     
     @IBOutlet weak var MinutesTableView: UITableView!
     @IBOutlet weak var SecondsTableView: UITableView!
+    @IBOutlet var MainView: UIView!
+    
+    @IBOutlet weak var StartButton: UIButton!
+    @IBAction func startTimer(sender: AnyObject) {
+        println("Clicked start")
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "StartTimerSegue"
+        {
+            if let destinationVC = segue.destinationViewController as? TimerViewController {
+                let minutes = c1.getSelectedValue(MinutesTableView)
+                let seconds = c2.getSelectedValue(SecondsTableView)
+                destinationVC.speakInterval = minutes.toInt()! * 60 + seconds.toInt()!
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        var gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = MainView.bounds;
+        gradient.colors = [UIColor(red: 63/255.0, green: 76/255.0, blue: 107/255.0, alpha: 1.0).CGColor, UIColor(red: 96/255.0, green: 108/255.0, blue: 136/255.0, alpha: 1.0).CGColor]
+        MainView.layer.insertSublayer(gradient, atIndex: 0)
         
         var timeUnits: Array<Dictionary<String, String>> = []
         
         for i in [Int](0...60) {
-            timeUnits.append(["index": String(i), "text": String(i)])
+            timeUnits.append(["index": String(i), "text": String(format: "%02d", i)])
         }
         
         let numberOfRows: Int = 8
@@ -37,7 +59,8 @@ class ViewController: UIViewController {
         
         MinutesTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        MinutesTableView.backgroundColor = UIColor.redColor()
+        MinutesTableView.backgroundColor = UIColor.clearColor()
+        SecondsTableView.backgroundColor = UIColor.clearColor()
         
         MinutesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         SecondsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -46,6 +69,15 @@ class ViewController: UIViewController {
 
         MinutesTableView.rowHeight = CGFloat(rowHeight)
         SecondsTableView.rowHeight = CGFloat(rowHeight)
+
+        MinutesTableView.contentOffset.y = (CGFloat(25 * timeUnits.count) - CGFloat(3.1)) * CGFloat(rowHeight)
+        SecondsTableView.contentOffset.y = (CGFloat(25 * timeUnits.count) + CGFloat(26.1)) * CGFloat(rowHeight)
+        StartButton.backgroundColor = UIColor.whiteColor()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        c1.scrollToCellTop(MinutesTableView)
+        c2.scrollToCellTop(SecondsTableView)
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,27 +85,23 @@ class ViewController: UIViewController {
     }
 }
 
-class IntervalPickerController<T>: NSObject, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate  {
-//    let tableData: Array<Dictionary<String, String>>!
-    let tableData: [T]!
+class IntervalPickerController: NSObject, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate  {
+    let tableData: Array<Dictionary<String, String>>!
     let tableView: UITableView!
     let numberOfRows: Int!
+    var cleanedTableView = false
     
-    init(tableData: [T], inout tableView: UITableView!, numberOfRows: Int) {
-//    init(tableData: Array<Dictionary<String, String>>, inout tableView: UITableView!, numberOfRows: Int) {
+    init(tableData: Array<Dictionary<String, String>>, inout tableView: UITableView!, numberOfRows: Int) {
         
-//        var loopedData: Array<Dictionary<String, String>> = []
-        var loopedData: [T] = []
+        var loopedData: Array<Dictionary<String, String>> = []
 
         for i in 1...50 {
             loopedData += tableData
         }
         
-        self.tableData = tableData
+        self.tableData = loopedData
         self.tableView = tableView
         self.numberOfRows = numberOfRows
-    
-//        self.tableView.decelerationRate = UIScrollViewDecelerationRateFast
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -116,20 +144,9 @@ class IntervalPickerController<T>: NSObject, UITableViewDataSource, UITableViewD
         } else {
             scrollView.setContentOffset(CGPointMake(0, CGFloat(tableViewOffset + (cellHeight / 2) - (tableViewOffset % cellHeight))), animated: true)
         }
-        
-//        if (tableViewOffset % cellHeight) == 0.0 {
-//            setTextOfMiddleElement(scrollView)
-//        } else if ((tableViewOffset % cellHeight) < (cellHeight / 2)) {
-//            scrollView.setContentOffset(CGPointMake(0, CGFloat(tableViewOffset - (tableViewOffset % cellHeight))), animated: true)
-//        } else {
-//            scrollView.setContentOffset(CGPointMake(0, CGFloat(tableViewOffset + cellHeight - (tableViewOffset % cellHeight))), animated: true)
-//        }
-        
-//        scrollView.setContentOffset(CGPointMake(0, heightOfFullHiddenCellsAbove + offsetAdjustment), animated: true)
     }
     
     func setTextOfMiddleElement(scrollView: UIScrollView) {
-        // TODO: Get rid of constant casting to Int (only need to in forRow: call)
         let tableViewOffset = scrollView.contentOffset.y
         let totalTableViewHeight = scrollView.contentSize.height
         let visibleTableViewHeight = scrollView.frame.height
@@ -137,20 +154,28 @@ class IntervalPickerController<T>: NSObject, UITableViewDataSource, UITableViewD
         let cellsOnScreen = visibleTableViewHeight / cellHeight
         
         let middleRowIndex = (cellsOnScreen / 2) + (tableViewOffset / cellHeight)
-        tableView.cellForRowAtIndexPath(NSIndexPath(forRow: Int(middleRowIndex), inSection: 0))?.textLabel?.text = "Middle"
-        tableView.cellForRowAtIndexPath(NSIndexPath(forRow: Int(middleRowIndex), inSection: 0))?.backgroundColor = UIColor.blueColor()
+        tableView.cellForRowAtIndexPath(NSIndexPath(forRow: Int(middleRowIndex), inSection: 0))?.textLabel?.textColor = UIColor(red:255.0/255.0, green:255.0/255.0, blue:255.0/255.0, alpha:1.0)
+        self.cleanedTableView = false
+    }
+    
+    func getSelectedValue(scrollView: UIScrollView) -> String {
+        let tableViewOffset = scrollView.contentOffset.y
+        let totalTableViewHeight = scrollView.contentSize.height
+        let visibleTableViewHeight = scrollView.frame.height
+        let cellHeight = tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)).height
+        let cellsOnScreen = visibleTableViewHeight / cellHeight
+        
+        let middleRowIndex = (cellsOnScreen / 2) + (tableViewOffset / cellHeight)
+        var tableCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: Int(middleRowIndex), inSection: 0))
+        return tableCell!.textLabel!.text!
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        // TODO: Make this only run once after scrolling / dragging has begun
-        for e in tableData {
-            tableView.cellForRowAtIndexPath(NSIndexPath(forRow: e["index"]!.toInt()!, inSection: 0))?.textLabel?.text = e["index"]!
-        }
-    }
-    
-    subscript(input: T) -> String {
-        get {
-            return "test"
+        if !self.cleanedTableView {
+            for cell in tableView.visibleCells() {
+                cell.textLabel!!.textColor = UIColor(red:255.0/255.0, green:255.0/255.0, blue:255.0/255.0, alpha:0.4)
+            }
+            self.cleanedTableView = true
         }
     }
     
@@ -161,18 +186,10 @@ class IntervalPickerController<T>: NSObject, UITableViewDataSource, UITableViewD
         cell.backgroundColor = UIColor.clearColor()
         
         cell.textLabel?.text = String(stringInterpolationSegment: item["text"]!)
-        let myFont = UIFont(name: "Arial", size: 40.0);
+        // TODO: Set font height to be multiple of cell height by default (add option to choose)
+        let myFont = UIFont(name: "Avenir-Light", size: 46.0);
         cell.textLabel!.font  = myFont;
+        cell.textLabel?.textColor = UIColor(red:255.0/255.0, green:255.0/255.0, blue:255.0/255.0, alpha:0.4)
         return cell
     }
-    
-//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-//        println(tableView.cellForRowAtIndexPath(indexPath)?.frame.size.height)
-//    }
-    
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        println(tableView.cellForRowAtIndexPath(indexPath)!.frame.size.height)
-//        return CGFloat(50.0)
-//    }
-    
 }

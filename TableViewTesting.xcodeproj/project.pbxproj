@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		337E8CF21ADC745200DFC332 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337E8CF11ADC745200DFC332 /* AVFoundation.framework */; };
+		337E8CF41ADC7C0F00DFC332 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337E8CF31ADC7C0F00DFC332 /* TimerViewController.swift */; };
 		33C96E311ACA03F300BE03C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C96E301ACA03F300BE03C3 /* AppDelegate.swift */; };
 		33C96E331ACA03F300BE03C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C96E321ACA03F300BE03C3 /* ViewController.swift */; };
 		33C96E361ACA03F300BE03C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C96E341ACA03F300BE03C3 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		337E8CF11ADC745200DFC332 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		337E8CF31ADC7C0F00DFC332 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		33C96E2B1ACA03F300BE03C3 /* TableViewTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C96E2F1ACA03F300BE03C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33C96E301ACA03F300BE03C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				337E8CF21ADC745200DFC332 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +64,7 @@
 		33C96E221ACA03F300BE03C3 = {
 			isa = PBXGroup;
 			children = (
+				337E8CF11ADC745200DFC332 /* AVFoundation.framework */,
 				33C96E2D1ACA03F300BE03C3 /* TableViewTesting */,
 				33C96E431ACA03F400BE03C3 /* TableViewTestingTests */,
 				33C96E2C1ACA03F300BE03C3 /* Products */,
@@ -79,6 +85,7 @@
 			children = (
 				33C96E301ACA03F300BE03C3 /* AppDelegate.swift */,
 				33C96E321ACA03F300BE03C3 /* ViewController.swift */,
+				337E8CF31ADC7C0F00DFC332 /* TimerViewController.swift */,
 				33C96E341ACA03F300BE03C3 /* Main.storyboard */,
 				33C96E371ACA03F300BE03C3 /* Images.xcassets */,
 				33C96E391ACA03F300BE03C3 /* LaunchScreen.xib */,
@@ -161,6 +168,11 @@
 				TargetAttributes = {
 					33C96E2A1ACA03F300BE03C3 = {
 						CreatedOnToolsVersion = 6.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					33C96E3F1ACA03F400BE03C3 = {
 						CreatedOnToolsVersion = 6.3;
@@ -213,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33C96E331ACA03F300BE03C3 /* ViewController.swift in Sources */,
+				337E8CF41ADC7C0F00DFC332 /* TimerViewController.swift in Sources */,
 				33C96E311ACA03F300BE03C3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
