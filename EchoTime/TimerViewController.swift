@@ -1,6 +1,6 @@
 //
 //  TimerViewController.swift
-//  TableViewTesting
+//  EchoTime
 //
 //  Created by Hamilton Chapman on 13/04/2015.
 //  Copyright (c) 2015 hc.gg. All rights reserved.
@@ -30,6 +30,7 @@ class TimerViewController: UIViewController {
             let updateSelector: Selector = "updateTime"
             let speakCatchupSelector: Selector = "speakCatchupTimeAloud"
             labelTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: updateSelector, userInfo: nil, repeats: true)
+            NSRunLoop.mainRunLoop().addTimer(labelTimer, forMode: NSRunLoopCommonModes)
             
             sender.setTitle("Pause", forState: .Normal)
             
@@ -37,7 +38,11 @@ class TimerViewController: UIViewController {
             elapsedPausedTimeTotal += elapsedPausedTime
             var elapsedTime: NSTimeInterval = currentTime - startTime - elapsedPausedTimeTotal
             let catchupInterval = Double(speakInterval) - (Double(elapsedTime) % Double(speakInterval))
+            if speakCatchupTimer.valid {
+                speakCatchupTimer.invalidate()
+            }
             speakCatchupTimer = NSTimer.scheduledTimerWithTimeInterval(catchupInterval, target: self, selector: speakCatchupSelector, userInfo: nil, repeats: false)
+            NSRunLoop.mainRunLoop().addTimer(speakCatchupTimer, forMode: NSRunLoopCommonModes)
         } else {
             timerRunning = false
             pausedTime = NSDate()
@@ -56,18 +61,23 @@ class TimerViewController: UIViewController {
     var elapsedPausedTime: NSTimeInterval = 0.0
     var elapsedPausedTimeTotal: NSTimeInterval = 0.0
     var speakInterval: Int!
-
+    let synth = AVSpeechSynthesizer()
+    var audioSession = AVAudioSession.sharedInstance()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         if (!labelTimer.valid) {
+            audioSession.setCategory(AVAudioSessionCategoryPlayback, withOptions: .DuckOthers, error: nil)
             startTime = NSDate.timeIntervalSinceReferenceDate()
+            audioSession.setActive(true, error: nil)
             let updateSelector: Selector = "updateTime"
             let speakSelector: Selector = "speakTimeAloud"
             labelTimer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: updateSelector, userInfo: nil, repeats: true)
+            NSRunLoop.mainRunLoop().addTimer(labelTimer, forMode: NSRunLoopCommonModes)
             speakTimer = NSTimer.scheduledTimerWithTimeInterval(Double(speakInterval), target: self, selector: speakSelector, userInfo: nil, repeats: true)
+            NSRunLoop.mainRunLoop().addTimer(speakTimer, forMode: NSRunLoopCommonModes)
         }
     }
 
@@ -101,13 +111,12 @@ class TimerViewController: UIViewController {
     }
     
     func speakTimeAloud() {
-        var audioSession = AVAudioSession.sharedInstance()
-        var success = audioSession.setCategory(AVAudioSessionCategoryPlayback, withOptions: .MixWithOthers, error: nil)
-        audioSession.setActive(true, error: nil)
-        
-        let synth = AVSpeechSynthesizer()
-        var myUtterance = AVSpeechUtterance(string: timerLabel.text!.componentsSeparatedByString(":")[1] + " seconds")
+        var currentTime = NSDate.timeIntervalSinceReferenceDate()
+        var elapsedTime: NSTimeInterval = currentTime - startTime - elapsedPausedTimeTotal
+
+        var myUtterance = AVSpeechUtterance(string: "\(Int(elapsedTime)) seconds")
         myUtterance.rate = 0.2
+        myUtterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
         synth.speakUtterance(myUtterance)
     }
     
@@ -115,6 +124,7 @@ class TimerViewController: UIViewController {
         speakCatchupTimer.invalidate()
         let speakSelector: Selector = "speakTimeAloud"
         speakTimer = NSTimer.scheduledTimerWithTimeInterval(Double(speakInterval), target: self, selector: speakSelector, userInfo: nil, repeats: true)
+        NSRunLoop.mainRunLoop().addTimer(speakTimer, forMode: NSRunLoopCommonModes)
         speakTimeAloud()
     }
 

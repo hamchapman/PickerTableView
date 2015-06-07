@@ -1,6 +1,6 @@
 //
-//  TableViewTestingTests.swift
-//  TableViewTestingTests
+//  EchoTimeTests.swift
+//  EchoTimeTests
 //
 //  Created by Hamilton Chapman on 30/03/2015.
 //  Copyright (c) 2015 hc.gg. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class TableViewTestingTests: XCTestCase {
+class EchoTimeTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

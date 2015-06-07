@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TableViewTesting.xcodeproj">
+      location = "self:/Users/Hami/Dropbox/Xcode/TableViewTesting/EchoTime.xcodeproj">
    </FileRef>
 </Workspace>

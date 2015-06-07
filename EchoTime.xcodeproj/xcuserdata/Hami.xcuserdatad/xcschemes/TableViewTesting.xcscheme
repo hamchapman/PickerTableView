@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "33C96E2A1ACA03F300BE03C3"
-               BuildableName = "TableViewTesting.app"
-               BlueprintName = "TableViewTesting"
-               ReferencedContainer = "container:TableViewTesting.xcodeproj">
+               BuildableName = "EchoTime.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app"
+               BlueprintName = "EchoTime"
+               ReferencedContainer = "container:EchoTime.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "33C96E3F1ACA03F400BE03C3"
-               BuildableName = "TableViewTestingTests.xctest"
-               BlueprintName = "TableViewTestingTests"
-               ReferencedContainer = "container:TableViewTesting.xcodeproj">
+               BuildableName = "EchoTime.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests.xctest"
+               BlueprintName = "EchoTimeTests"
+               ReferencedContainer = "container:EchoTime.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "33C96E3F1ACA03F400BE03C3"
-               BuildableName = "TableViewTestingTests.xctest"
-               BlueprintName = "TableViewTestingTests"
-               ReferencedContainer = "container:TableViewTesting.xcodeproj">
+               BuildableName = "EchoTime.temp_caseinsensitive_rename.temp_caseinsensitive_renameTests.xctest"
+               BlueprintName = "EchoTimeTests"
+               ReferencedContainer = "container:EchoTime.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "33C96E2A1ACA03F300BE03C3"
-            BuildableName = "TableViewTesting.app"
-            BlueprintName = "TableViewTesting"
-            ReferencedContainer = "container:TableViewTesting.xcodeproj">
+            BuildableName = "EchoTime.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app"
+            BlueprintName = "EchoTime"
+            ReferencedContainer = "container:EchoTime.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "33C96E2A1ACA03F300BE03C3"
-            BuildableName = "TableViewTesting.app"
-            BlueprintName = "TableViewTesting"
-            ReferencedContainer = "container:TableViewTesting.xcodeproj">
+            BuildableName = "EchoTime.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app"
+            BlueprintName = "EchoTime"
+            ReferencedContainer = "container:EchoTime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "33C96E2A1ACA03F300BE03C3"
-            BuildableName = "TableViewTesting.app"
-            BlueprintName = "TableViewTesting"
-            ReferencedContainer = "container:TableViewTesting.xcodeproj">
+            BuildableName = "EchoTime.temp_caseinsensitive_rename.temp_caseinsensitive_rename.app"
+            BlueprintName = "EchoTime"
+            ReferencedContainer = "container:EchoTime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

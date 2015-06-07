@@ -14,7 +14,7 @@
 		33C96E361ACA03F300BE03C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33C96E341ACA03F300BE03C3 /* Main.storyboard */; };
 		33C96E381ACA03F300BE03C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33C96E371ACA03F300BE03C3 /* Images.xcassets */; };
 		33C96E3B1ACA03F300BE03C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33C96E391ACA03F300BE03C3 /* LaunchScreen.xib */; };
-		33C96E471ACA03F400BE03C3 /* TableViewTestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C96E461ACA03F400BE03C3 /* TableViewTestingTests.swift */; };
+		33C96E471ACA03F400BE03C3 /* EchoTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C96E461ACA03F400BE03C3 /* EchoTimeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,16 +30,16 @@
 /* Begin PBXFileReference section */
 		337E8CF11ADC745200DFC332 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		337E8CF31ADC7C0F00DFC332 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
-		33C96E2B1ACA03F300BE03C3 /* TableViewTesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewTesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33C96E2B1ACA03F300BE03C3 /* EchoTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EchoTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C96E2F1ACA03F300BE03C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33C96E301ACA03F300BE03C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33C96E321ACA03F300BE03C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		33C96E351ACA03F300BE03C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33C96E371ACA03F300BE03C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		33C96E3A1ACA03F300BE03C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		33C96E401ACA03F400BE03C3 /* TableViewTestingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewTestingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		33C96E401ACA03F400BE03C3 /* EchoTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EchoTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C96E451ACA03F400BE03C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		33C96E461ACA03F400BE03C3 /* TableViewTestingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewTestingTests.swift; sourceTree = "<group>"; };
+		33C96E461ACA03F400BE03C3 /* EchoTimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoTimeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +65,8 @@
 			isa = PBXGroup;
 			children = (
 				337E8CF11ADC745200DFC332 /* AVFoundation.framework */,
-				33C96E2D1ACA03F300BE03C3 /* TableViewTesting */,
-				33C96E431ACA03F400BE03C3 /* TableViewTestingTests */,
+				33C96E2D1ACA03F300BE03C3 /* EchoTime */,
+				33C96E431ACA03F400BE03C3 /* EchoTimeTests */,
 				33C96E2C1ACA03F300BE03C3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,13 +74,13 @@
 		33C96E2C1ACA03F300BE03C3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				33C96E2B1ACA03F300BE03C3 /* TableViewTesting.app */,
-				33C96E401ACA03F400BE03C3 /* TableViewTestingTests.xctest */,
+				33C96E2B1ACA03F300BE03C3 /* EchoTime.app */,
+				33C96E401ACA03F400BE03C3 /* EchoTimeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		33C96E2D1ACA03F300BE03C3 /* TableViewTesting */ = {
+		33C96E2D1ACA03F300BE03C3 /* EchoTime */ = {
 			isa = PBXGroup;
 			children = (
 				33C96E301ACA03F300BE03C3 /* AppDelegate.swift */,
@@ -91,7 +91,7 @@
 				33C96E391ACA03F300BE03C3 /* LaunchScreen.xib */,
 				33C96E2E1ACA03F300BE03C3 /* Supporting Files */,
 			);
-			path = TableViewTesting;
+			path = EchoTime;
 			sourceTree = "<group>";
 		};
 		33C96E2E1ACA03F300BE03C3 /* Supporting Files */ = {
@@ -102,13 +102,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		33C96E431ACA03F400BE03C3 /* TableViewTestingTests */ = {
+		33C96E431ACA03F400BE03C3 /* EchoTimeTests */ = {
 			isa = PBXGroup;
 			children = (
-				33C96E461ACA03F400BE03C3 /* TableViewTestingTests.swift */,
+				33C96E461ACA03F400BE03C3 /* EchoTimeTests.swift */,
 				33C96E441ACA03F400BE03C3 /* Supporting Files */,
 			);
-			path = TableViewTestingTests;
+			path = EchoTimeTests;
 			sourceTree = "<group>";
 		};
 		33C96E441ACA03F400BE03C3 /* Supporting Files */ = {
@@ -122,9 +122,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		33C96E2A1ACA03F300BE03C3 /* TableViewTesting */ = {
+		33C96E2A1ACA03F300BE03C3 /* EchoTime */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 33C96E4A1ACA03F400BE03C3 /* Build configuration list for PBXNativeTarget "TableViewTesting" */;
+			buildConfigurationList = 33C96E4A1ACA03F400BE03C3 /* Build configuration list for PBXNativeTarget "EchoTime" */;
 			buildPhases = (
 				33C96E271ACA03F300BE03C3 /* Sources */,
 				33C96E281ACA03F300BE03C3 /* Frameworks */,
@@ -134,14 +134,14 @@
 			);
 			dependencies = (
 			);
-			name = TableViewTesting;
+			name = EchoTime;
 			productName = TableViewTesting;
-			productReference = 33C96E2B1ACA03F300BE03C3 /* TableViewTesting.app */;
+			productReference = 33C96E2B1ACA03F300BE03C3 /* EchoTime.app */;
 			productType = "com.apple.product-type.application";
 		};
-		33C96E3F1ACA03F400BE03C3 /* TableViewTestingTests */ = {
+		33C96E3F1ACA03F400BE03C3 /* EchoTimeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 33C96E4D1ACA03F400BE03C3 /* Build configuration list for PBXNativeTarget "TableViewTestingTests" */;
+			buildConfigurationList = 33C96E4D1ACA03F400BE03C3 /* Build configuration list for PBXNativeTarget "EchoTimeTests" */;
 			buildPhases = (
 				33C96E3C1ACA03F400BE03C3 /* Sources */,
 				33C96E3D1ACA03F400BE03C3 /* Frameworks */,
@@ -152,9 +152,9 @@
 			dependencies = (
 				33C96E421ACA03F400BE03C3 /* PBXTargetDependency */,
 			);
-			name = TableViewTestingTests;
+			name = EchoTimeTests;
 			productName = TableViewTestingTests;
-			productReference = 33C96E401ACA03F400BE03C3 /* TableViewTestingTests.xctest */;
+			productReference = 33C96E401ACA03F400BE03C3 /* EchoTimeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -180,7 +180,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 33C96E261ACA03F300BE03C3 /* Build configuration list for PBXProject "TableViewTesting" */;
+			buildConfigurationList = 33C96E261ACA03F300BE03C3 /* Build configuration list for PBXProject "EchoTime" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -193,8 +193,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				33C96E2A1ACA03F300BE03C3 /* TableViewTesting */,
-				33C96E3F1ACA03F400BE03C3 /* TableViewTestingTests */,
+				33C96E2A1ACA03F300BE03C3 /* EchoTime */,
+				33C96E3F1ACA03F400BE03C3 /* EchoTimeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33C96E471ACA03F400BE03C3 /* TableViewTestingTests.swift in Sources */,
+				33C96E471ACA03F400BE03C3 /* EchoTimeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,7 +243,7 @@
 /* Begin PBXTargetDependency section */
 		33C96E421ACA03F400BE03C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 33C96E2A1ACA03F300BE03C3 /* TableViewTesting */;
+			target = 33C96E2A1ACA03F300BE03C3 /* EchoTime */;
 			targetProxy = 33C96E411ACA03F400BE03C3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -355,10 +355,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = TableViewTesting/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/EchoTime/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EchoTime;
 			};
 			name = Debug;
 		};
@@ -366,10 +366,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = TableViewTesting/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/EchoTime/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EchoTime;
 			};
 			name = Release;
 		};
@@ -385,10 +385,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = TableViewTestingTests/Info.plist;
+				INFOPLIST_FILE = EchoTimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TableViewTesting.app/TableViewTesting";
+				PRODUCT_NAME = EchoTimeTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EchoTime.app/EchoTime";
 			};
 			name = Debug;
 		};
@@ -400,17 +400,17 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = TableViewTestingTests/Info.plist;
+				INFOPLIST_FILE = EchoTimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TableViewTesting.app/TableViewTesting";
+				PRODUCT_NAME = EchoTimeTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EchoTime.app/EchoTime";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		33C96E261ACA03F300BE03C3 /* Build configuration list for PBXProject "TableViewTesting" */ = {
+		33C96E261ACA03F300BE03C3 /* Build configuration list for PBXProject "EchoTime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				33C96E481ACA03F400BE03C3 /* Debug */,
@@ -419,7 +419,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		33C96E4A1ACA03F400BE03C3 /* Build configuration list for PBXNativeTarget "TableViewTesting" */ = {
+		33C96E4A1ACA03F400BE03C3 /* Build configuration list for PBXNativeTarget "EchoTime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				33C96E4B1ACA03F400BE03C3 /* Debug */,
@@ -428,7 +428,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		33C96E4D1ACA03F400BE03C3 /* Build configuration list for PBXNativeTarget "TableViewTestingTests" */ = {
+		33C96E4D1ACA03F400BE03C3 /* Build configuration list for PBXNativeTarget "EchoTimeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				33C96E4E1ACA03F400BE03C3 /* Debug */,

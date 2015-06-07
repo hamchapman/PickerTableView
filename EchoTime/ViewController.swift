@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  TableViewTesting
+//  EchoTime
 //
 //  Created by Hamilton Chapman on 30/03/2015.
 //  Copyright (c) 2015 hc.gg. All rights reserved.
@@ -15,11 +15,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var MinutesTableView: UITableView!
     @IBOutlet weak var SecondsTableView: UITableView!
-    @IBOutlet var MainView: UIView!
-    
     @IBOutlet weak var StartButton: UIButton!
+    @IBOutlet var MainView: UIView!
+
     @IBAction func startTimer(sender: AnyObject) {
-        println("Clicked start")
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
