@@ -46,7 +46,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="280" id="SIR-rs-ZLj"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="SOB-Mm-Jz3"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="SOB-Mm-Jz3"/>
                                             <constraint firstAttribute="width" constant="210" id="aco-4I-BDy"/>
                                             <constraint firstAttribute="height" constant="520" id="gng-Bd-f3X"/>
                                         </constraints>
@@ -79,7 +79,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="520" id="ohm-Vb-J6f"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="uso-mc-5ah"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="uso-mc-5ah"/>
                                             <constraint firstAttribute="width" constant="210" id="vnK-Dv-66P"/>
                                         </constraints>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
