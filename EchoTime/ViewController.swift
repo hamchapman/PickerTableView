@@ -64,20 +64,29 @@ class ViewController: UIViewController {
         
         MinutesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         SecondsTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        let rowHeight = Float(MinutesTableView.frame.height) / Float(numberOfRows)
-
-        MinutesTableView.rowHeight = CGFloat(rowHeight)
-        SecondsTableView.rowHeight = CGFloat(rowHeight)
-
-        MinutesTableView.contentOffset.y = (CGFloat(25 * timeUnits.count) - CGFloat(3.1)) * CGFloat(rowHeight)
-        SecondsTableView.contentOffset.y = (CGFloat(25 * timeUnits.count) + CGFloat(26.1)) * CGFloat(rowHeight)
+    
         StartButton.backgroundColor = UIColor.whiteColor()
     }
     
     override func viewDidAppear(animated: Bool) {
-        c1.scrollToCellTop(MinutesTableView)
-        c2.scrollToCellTop(SecondsTableView)
+        if c1.initialLoad {
+            let rowHeight = Float(MinutesTableView.frame.height) / Float(c1.numberOfRows)
+            
+            MinutesTableView.rowHeight = CGFloat(rowHeight)
+            SecondsTableView.rowHeight = CGFloat(rowHeight)
+            
+            MinutesTableView.contentOffset.y = (CGFloat(c1.tableData.count) * 0.5 - CGFloat(3.1)) * CGFloat(rowHeight)
+            SecondsTableView.contentOffset.y = (CGFloat(c2.tableData.count) * 0.5 + CGFloat(26.1)) * CGFloat(rowHeight)
+            
+            MinutesTableView.reloadData()
+            SecondsTableView.reloadData()
+            
+            c1.scrollToCellTop(MinutesTableView)
+            c2.scrollToCellTop(SecondsTableView)
+            
+            c1.initialLoad = false
+            c2.initialLoad = false
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,6 +99,7 @@ class IntervalPickerController: NSObject, UITableViewDataSource, UITableViewDele
     let tableView: UITableView!
     let numberOfRows: Int!
     var cleanedTableView = false
+    var initialLoad = true
     
     init(tableData: Array<Dictionary<String, String>>, inout tableView: UITableView!, numberOfRows: Int) {
         
@@ -128,12 +138,18 @@ class IntervalPickerController: NSObject, UITableViewDataSource, UITableViewDele
     
     func scrollToCellTop(scrollView: UIScrollView) {
         let tableViewOffset = scrollView.contentOffset.y
+//        println("tableViewOffset \(tableViewOffset)")
         let visibleTableViewHeight = scrollView.frame.height
+//        println("visibleTableViewHeight \(visibleTableViewHeight)")
         let cellHeight = tableView.rectForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)).height
+//        println("cellHeight \(cellHeight)")
         
         let heightOfFullHiddenCellsAbove = tableViewOffset - (tableViewOffset % cellHeight)
+//        println("heightOfFullHiddenCellsAbove \(heightOfFullHiddenCellsAbove)")
         let halfViewMinusMiddleCell = (visibleTableViewHeight - cellHeight) / 2
+//        println("halfViewMinusMiddleCell \(halfViewMinusMiddleCell)")
         let offsetAdjustment = cellHeight - (halfViewMinusMiddleCell % cellHeight)
+//        println("offsetAdjustment \(offsetAdjustment)")
         
         if self.numberOfRows % 2 == 1 {
             if ((tableViewOffset % cellHeight) < (cellHeight / 2)) {
